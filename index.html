@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>【プリラック】マニュアル</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1eccdc0a-66a6-8005-b3d8-da15dc2a7252" class="page sans"><header><h1 class="page-title">【プリラック】マニュアル</h1><p class="page-description"></p></header><div class="page-body"><h1 id="1eccdc0a-66a6-80ff-8fbf-c671e3f8c6cf" class="">プリラック 使用マニュアル</h1><hr id="1eccdc0a-66a6-80df-83e9-e98ba6a0c20a"/><h2 id="1eccdc0a-66a6-80f9-b96d-e6552dd9a733" class="">1. はじめに</h2><p id="1eccdc0a-66a6-80f7-b86a-e9a172f497a5" class="">プリラックは、オークタウンから落札情報を自動的に取得し、Excelファイルへの出力と画像ファイルの振り分けを行うツールです。このツールを使用することで、落札データの管理を効率化し、印刷用の画像ファイルを適切に整理することができます。</p><hr id="1eccdc0a-66a6-80d0-a4e4-ca69718a8336"/><h2 id="1eccdc0a-66a6-8026-a26b-d9adc66109b1" class="">2. 動作に必要なもの</h2><ul id="1eccdc0a-66a6-806c-8667-e3125156ab6e" class="bulleted-list"><li style="list-style-type:disc"><strong>OS:</strong> Windows 10 / 11</li></ul><ul id="1eccdc0a-66a6-8045-b3a7-fce1eeaf3676" class="bulleted-list"><li style="list-style-type:disc"><strong>Webブラウザ:</strong> Google Chrome (最新版を推奨、ツールが内部的に操作します)</li></ul><ul id="1eccdc0a-66a6-80c9-8de7-cab5eaa3bbd3" class="bulleted-list"><li style="list-style-type:disc"><strong>インターネット接続:</strong> オークタウンへのアクセスに必要です。</li></ul><ul id="1eccdc0a-66a6-8060-938c-ef9319795241" class="bulleted-list"><li style="list-style-type:disc"><strong>オークタウンアカウント:</strong> 事前にオークタウンにログインし、必要な初期設定を済ませておく必要があります。</li></ul><ul id="1eccdc0a-66a6-80fc-9be9-ecbfa7f372e7" class="bulleted-list"><li style="list-style-type:disc"><strong>ディスク空き容量:</strong> プリラック本体と、処理するデータ（Excelファイル、画像ファイル）を保存するための十分な空き容量が必要です。</li></ul><ul id="1eccdc0a-66a6-8089-a5ed-f49704a18946" class="bulleted-list"><li style="list-style-type:disc"><strong>ウイルス対策ソフトに関する注意:</strong> ウイルス対策ソフトがプリラックの動作を妨げないように設定を確認してください。必要に応じて、プリラックの実行ファイルを除外設定に追加してください。</li></ul><hr id="1eccdc0a-66a6-8075-88b1-e9517f16c004"/><h2 id="1eccdc0a-66a6-80b6-8691-d28b40155717" class="">3. 準備と起動方法</h2><ol type="1" id="1eccdc0a-66a6-80b2-9220-c6c80bb4ce70" class="numbered-list" start="1"><li><strong>ダウンロードと展開:</strong><ul id="1eccdc0a-66a6-80af-a0ce-c40abea5e2ca" class="bulleted-list"><li style="list-style-type:disc">配布された <code>プリラック.zip</code> ファイルを、任意の場所にダウンロードします。</li></ul><ul id="1eccdc0a-66a6-80a6-a08c-f83b7b9cd1df" class="bulleted-list"><li style="list-style-type:disc"><strong>重要:</strong> デスクトップやOneDriveの同期フォルダ、その他特殊なアクセス権が要求される可能性のある場所（例: <code>C:\\Program Files</code> 直下など）は避けてください。<code>C:\\プリラック</code> や <code>D:\\ツール\\プリラック</code> のように、シンプルなパスのフォルダを作成して展開することを推奨します。</li></ul><ul id="1eccdc0a-66a6-80f4-b663-c10ee2f20555" class="bulleted-list"><li style="list-style-type:disc">ダウンロードした <code>プリラック.zip</code> ファイルを右クリックし、「すべて展開...」を選択して、作成したフォルダに展開します。</li></ul></li></ol><ol type="1" id="1eccdc0a-66a6-80df-b440-e984d4d76601" class="numbered-list" start="2"><li><strong>Google Chromeの確認:</strong><ul id="1eccdc0a-66a6-80e3-8978-fa91a7fb3aeb" class="bulleted-list"><li style="list-style-type:disc">お使いのPCにGoogle Chromeがインストールされていることを確認してください。インストールされていない場合は、事前にGoogle Chromeをインストールしてください。プリラックは内部的にChromeを使用してオークタウンの情報を取得します。</li></ul></li></ol><ol type="1" id="1eccdc0a-66a6-8006-bd86-effa275308bc" class="numbered-list" start="3"><li><strong>プリラックの起動:</strong><ul id="1eccdc0a-66a6-8010-b054-c462e0f5b1d3" class="bulleted-list"><li style="list-style-type:disc">展開先のフォルダ内にある <code>プリラック.exe</code> をダブルクリックして起動します。</li></ul><ul id="1eccdc0a-66a6-805f-a3aa-d66eb9330393" class="bulleted-list"><li style="list-style-type:disc">初回起動時は、必要なファイルが一時フォルダに展開されるため、起動に少し時間がかかることがあります。</li></ul><ul id="1eccdc0a-66a6-80ae-b3aa-fb2b1581f70a" class="bulleted-list"><li style="list-style-type:disc">起動時に「WindowsによってPCが保護されました」というSmartScreenフィルターのメッセージが表示された場合は、「詳細情報」をクリックし、「実行」ボタンを押してください。</li></ul></li></ol><hr id="1eccdc0a-66a6-8036-8a00-e5775cea4acb"/><h2 id="1eccdc0a-66a6-8069-a5bd-c43c40327cf4" class="">4. メイン画面の構成と設定項目 (GUI準拠・新具体例反映版)</h2><p id="1eccdc0a-66a6-80a5-a951-d84e5418f947" class="">プリラックを起動するとメイン画面が表示されます。画面は大きく分けて上部の設定エリアと下部の実行エリアで構成されています。以下に、画面の上から順に各項目の意味と設定方法を説明します。</p><p id="1eccdc0a-66a6-806d-8b82-cd587747217c" class=""><strong>例として、以下の設定で説明を進めます。</strong></p><figure id="1eccdc0a-66a6-80b4-b124-f892be825db0" class="image"><a href="N8UxuPSZOq.png"><img style="width:709.984619140625px" src="N8UxuPSZOq.png"/></a></figure><h3 id="1eccdc0a-66a6-803f-8952-e745cba13910" class="">4.1. 認証情報エリア</h3><p id="1eccdc0a-66a6-8049-a4f6-c757e2d6922e" class="">画面の最上部には、オークタウンへのログインに必要な情報を設定する箇所があります。</p><ul id="1eccdc0a-66a6-80d0-abd2-c831cb46ede3" class="bulleted-list"><li style="list-style-type:disc"><strong>管理名:</strong><ul id="1eccdc0a-66a6-8087-9458-f5dc1661008a" class="bulleted-list"><li style="list-style-type:circle">今回の作業設定を識別するための名前を入力します。例えば「月次処理用」「特定商品用」など、分かりやすい名前を自由につけることができます。前回入力した管理名はドロップダウンリストに記憶され、選択することで過去の設定を呼び出すことができます。</li></ul><ul id="1eccdc0a-66a6-80ee-b228-e36d1e2d1f10" class="bulleted-list"><li style="list-style-type:circle"><strong>例:</strong> <code>テスト</code> と入力します。<br/><br/></li></ul><figure id="1eccdc0a-66a6-80ac-a543-e46a27dd9632" class="image"><a href="image.png"><img style="width:681.96923828125px" src="image.png"/></a></figure><ul id="1eccdc0a-66a6-8090-bfe7-cce3152f2c80" class="bulleted-list"><li style="list-style-type:circle">ここで入力された管理名は、設定情報を保存・読み込みする際のキーとして利用されます。入力された管理名に基づいて、関連するログインID、および後述する各種設定がローカルに保存され、次回起動時にこの管理名を選択するとそれらの設定が自動的に画面に反映されます。</li></ul></li></ul><ul id="1eccdc0a-66a6-80b8-981f-f0447745cc1b" class="bulleted-list"><li style="list-style-type:disc"><strong>ログインID:</strong><ul id="1eccdc0a-66a6-80ae-9391-c5ce6aa94c49" class="bulleted-list"><li style="list-style-type:circle">オークタウンのログインに使用するID（電話番号かメールアドレス）を入力します。</li></ul><ul id="1eccdc0a-66a6-80cc-b3c6-c6acba2c35cb" class="bulleted-list"><li style="list-style-type:circle"><strong>例:</strong> <code>09077771111</code> と入力します。</li></ul><ul id="1eccdc0a-66a6-8069-a313-fd8320202b52" class="bulleted-list"><li style="list-style-type:circle">ここで入力されたIDは、オークタウンへの自動ログイン処理に使用されます。<br/><br/></li></ul><figure id="1eccdc0a-66a6-800f-93c3-c106e3ff7f08" class="image"><a href="image%201.png"><img style="width:681.96923828125px" src="image%201.png"/></a></figure></li></ul><h3 id="1eccdc0a-66a6-80e7-9752-ca20eb5aa096" class="">4.2. 主な動作</h3><p id="1eccdc0a-66a6-804a-9c14-c7e68b990030" class="">実行する主な処理を選択します。</p><ul id="1eccdc0a-66a6-80c2-ba0c-d0b711e90217" class="bulleted-list"><li style="list-style-type:disc"><strong>オークタウンから落札データを取得しExcelへ出力:</strong><ul id="1eccdc0a-66a6-80e1-96b5-e4169adaa6d6" class="bulleted-list"><li style="list-style-type:circle">このラジオボタンを選択すると、プリラックはオークタウンにログインし、発送連絡のステータスになっている落札情報を取得し、Excelファイルに出力します。</li></ul></li></ul><ul id="1eccdc0a-66a6-8067-ab54-dba212f3cadb" class="bulleted-list"><li style="list-style-type:disc"><strong>画像を振り分け:</strong><ul id="1eccdc0a-66a6-8016-8bb4-c4427d8b388b" class="bulleted-list"><li style="list-style-type:circle">プリラックは指定されたExcelファイルを読み込み、その情報に基づいて指定されたフォルダ内の画像ファイルを価格帯別に仕分けします。</li></ul></li></ul><h3 id="1eccdc0a-66a6-80a9-97f5-ca2dbada8064" class="">4.3. ファイル設定エリア</h3><p id="1eccdc0a-66a6-80ea-8170-c7d6afdb77c1" class="">データの入出力先となるフォルダを指定します。</p><ul id="1eccdc0a-66a6-8024-bc29-ce278974917e" class="bulleted-list"><li style="list-style-type:disc"><strong>画像フォルダパス:</strong><ul id="1eccdc0a-66a6-80fb-a384-cfb05313dff4" class="bulleted-list"><li style="list-style-type:circle">落札画像が保存されている親フォルダを指定します。</li></ul><ul id="1eccdc0a-66a6-805e-baad-ccaa95c6b465" class="bulleted-list"><li style="list-style-type:circle"><strong>例:</strong> <code>:/13_ヤフオク/02_Adult_あんず/日付フフォルダ</code><br/><br/></li></ul><figure id="1eccdc0a-66a6-80f8-a24b-df09a4fdad7c" class="image"><a href="image%202.png"><img style="width:681.9346313476562px" src="image%202.png"/></a></figure></li></ul><ul id="1eccdc0a-66a6-8030-9802-f58c657f8d0d" class="bulleted-list"><li style="list-style-type:disc"><strong>出力フォルダパス:</strong><ul id="1eccdc0a-66a6-8011-9549-d320fb17b785" class="bulleted-list"><li style="list-style-type:circle">落札画像を仕分ける先のフォルダを指定します。</li></ul><ul id="1eccdc0a-66a6-80bc-bcb9-d31a7a699434" class="bulleted-list"><li style="list-style-type:circle"><strong>例:</strong> <code>D:/13_ヤフオク/02_Adult_あんず/06_落札画像まとめ</code></li></ul><figure id="1eccdc0a-66a6-80b6-84ad-e8127d2eebb0" class="image"><a href="image%202.png"><img style="width:681.9346313476562px" src="image%202.png"/></a></figure></li></ul><h3 id="1eccdc0a-66a6-80b6-b45c-c2610ecb6d82" class="">4.4. フォルダ振り分けモード</h3><ul id="1eccdc0a-66a6-80b6-9ada-d7c5530515b0" class="bulleted-list"><li style="list-style-type:disc"><strong>落札者IDごとにフォルダ作成:</strong> <ul id="1eccdc0a-66a6-8081-b90f-d155d0707efa" class="bulleted-list"><li style="list-style-type:circle">チェックを入れると、「出力フォルダ」内に落札者IDごとのサブフォルダが作成され、その中に対応する画像ファイルが保存されます。</li></ul><ul id="1eccdc0a-66a6-80a4-8345-d57544bc9d5f" class="bulleted-list"><li style="list-style-type:circle"><strong>チェックを入れる場合:</strong> 落札者ごとに画像をまとめたいとき。<figure id="1eccdc0a-66a6-8057-9aa1-e56acadda289" class="image"><a href="image%203.png"><img style="width:681.9115600585938px" src="image%203.png"/></a></figure></li></ul><ul id="1eccdc0a-66a6-8035-8a70-d427e5401e14" class="bulleted-list"><li style="list-style-type:circle"><strong>チェックを外す場合:</strong> すべての画像を落札者IDで区別せず、一括で「出力フォルダ」直下に保存したいとき。<br/><br/><br/></li></ul><figure id="1eccdc0a-66a6-8039-b537-f0e62d3f27eb" class="image"><a href="image%204.png"><img style="width:681.876953125px" src="image%204.png"/></a></figure></li></ul><ul id="1eccdc0a-66a6-801a-b546-ce16b866e7c7" class="bulleted-list"><li style="list-style-type:disc"><strong>即決価格:</strong><ul id="1eccdc0a-66a6-80ba-91ce-c6f2f3d0854e" class="bulleted-list"><li style="list-style-type:circle">即決価格に設定した金額以上の落札データを即決欄に出力します。どの商品が即決、または一定金額を満たしたか出力されたExcelで判定できます。<br/><br/></li></ul><figure id="1eccdc0a-66a6-8014-8f29-dd17c96e58d4" class="image"><a href="image%205.png"><img style="width:681.9577026367188px" src="image%205.png"/></a></figure></li></ul><ul id="1eccdc0a-66a6-802c-b583-ebacf13e4e69" class="bulleted-list"><li style="list-style-type:disc"><strong>価格振り分けを有効にする:</strong><ul id="1eccdc0a-66a6-8059-b249-dfe611ab1cc6" class="bulleted-list"><li style="list-style-type:circle">チェックを入れると、後述する「価格帯振り分け設定」で設定した下限値に基づいて、画像を&quot;Low&quot;, &quot;Middle&quot;, &quot;High&quot;の各フォルダに振り分けます。</li></ul><ul id="1eccdc0a-66a6-80cc-a91f-c114afb10840" class="bulleted-list"><li style="list-style-type:circle"><strong>チェックを入れる場合:</strong> 落札価格に応じて画像を異なるグレードのフォルダに分類したいとき。<figure id="1eccdc0a-66a6-803d-a1b9-e192d9dd774a" class="image"><a href="image%206.png"><img style="width:681.9577026367188px" src="image%206.png"/></a></figure></li></ul><ul id="1eccdc0a-66a6-8017-ad90-c67f30542a3f" class="bulleted-list"><li style="list-style-type:circle"><strong>チェックを外す場合:</strong> Lowのみに仕分けたい場合</li></ul><figure id="1eccdc0a-66a6-8028-93e6-e87d80320d35" class="image"><a href="image%207.png"><img style="width:681.9461669921875px" src="image%207.png"/></a></figure></li></ul><h3 id="1eccdc0a-66a6-8094-baa7-d167ff6e1fdd" class="">4.5. 価格帯振り分け設定D</h3><p id="1eccdc0a-66a6-8049-bf7f-dff031eb9fe1" class="">落札価格に応じて画像の印刷グレードを分けるための価格範囲を設定します。印刷に使用するファイルは必ずjpg形式である必要があります。</p><ul id="1eccdc0a-66a6-803b-809b-fb22bacdaf63" class="bulleted-list"><li style="list-style-type:disc"><strong>Low (下限値):</strong><ul id="1eccdc0a-66a6-809c-8a2e-f05a0b277604" class="bulleted-list"><li style="list-style-type:circle">この金額以上のものが&quot;Low&quot;カテゴリとなります。印刷発送代行では通常用紙+6色インクでの印刷に該当します。</li></ul></li></ul><ul id="1eccdc0a-66a6-80af-9b19-eb223833f6ff" class="bulleted-list"><li style="list-style-type:disc"><strong>Middle (下限値):</strong><ul id="1eccdc0a-66a6-8087-8962-c4e19dc6a0db" class="bulleted-list"><li style="list-style-type:circle">この金額以上のものが&quot;Middle&quot;カテゴリとなります。印刷発送代行では高級用紙+6色インクでの印刷に該当します。</li></ul></li></ul><ul id="1eccdc0a-66a6-80e0-904d-f13d472116e9" class="bulleted-list"><li style="list-style-type:disc"><strong>High (下限値):</strong><ul id="1eccdc0a-66a6-80fd-8343-eb25c4a5b32c" class="bulleted-list"><li style="list-style-type:circle">この金額以上のものが&quot;High&quot;カテゴリとなります。印刷発送代行では高級用紙+10色インクでの印刷に該当します。</li></ul></li></ul><figure id="1eccdc0a-66a6-8072-b71c-da60bd1355a6" class="image"><a href="image%208.png"><img style="width:709.984619140625px" src="image%208.png"/></a></figure><ul id="1eccdc0a-66a6-80ad-95d2-c4f53a40c38c" class="bulleted-list"><li style="list-style-type:disc"><strong>チェックボックス (各価格帯の左側):</strong><ul id="1eccdc0a-66a6-80be-b401-edf8d8bf9f8b" class="bulleted-list"><li style="list-style-type:circle">各価格帯（Low, Middle, High）の左側にあるチェックボックスは、その価格帯の振り分け処理を有効にするかどうかを指定します。</li></ul><ul id="1eccdc0a-66a6-8076-a766-c2c8423fe1c5" class="bulleted-list"><li style="list-style-type:circle"><strong>チェックを入れる場合:</strong> その価格帯での振り分けを行いたいとき。</li></ul><ul id="1eccdc0a-66a6-806d-860f-f9142c0fad85" class="bulleted-list"><li style="list-style-type:circle"><strong>チェックを外す場合:</strong> その価格帯を使用したくない（その価格帯のフォルダを作成せず、該当する価格の画像も振り分け対象外としたい、または別のルールで処理したい）とき。例えば、&quot;Middle&quot;のグレードを使いたくない場合は、&quot;Middle&quot;のチェックを外します。<br/><br/></li></ul><figure id="1eccdc0a-66a6-800b-8068-f6db9adcf207" class="image"><a href="image%209.png"><img style="width:681.9461669921875px" src="image%209.png"/></a></figure><ul id="1eccdc0a-66a6-8080-b4c4-fd87c2625b7d" class="bulleted-list"><li style="list-style-type:circle"><strong>価格帯設定の注意点:</strong><ul id="1eccdc0a-66a6-80ce-937c-ff86c6fe098c" class="bulleted-list"><li style="list-style-type:square">下限値は必ず「Low の下限値 &lt; Middle の下限値 &lt; High の下限値」となるように設定してください。<br/><br/></li></ul><figure id="1eccdc0a-66a6-80b1-9781-d99635f473d3" class="image"><a href="image%2010.png"><img style="width:653.9769287109375px" src="image%2010.png"/></a></figure><ul id="1eccdc0a-66a6-80a2-b6c5-f0fa3c410466" class="bulleted-list"><li style="list-style-type:square">矛盾する値（例: Lowの下限値がMiddleの下限値よりも高い）を入力して実行しようとすると、エラーメッセージが表示され処理が中断されるか、予期せぬ振り分け結果になる可能性があります。</li></ul><figure id="1eccdc0a-66a6-802d-a65f-ce42fb636cf3" class="image"><a href="image%2011.png"><img style="width:654px" src="image%2011.png"/></a></figure></li></ul></li></ul><h3 id="1eccdc0a-66a6-80dc-86b2-c5052385edff" class="">4.6. おまけ機能エリア</h3><ul id="1eccdc0a-66a6-809c-a23b-c9780298fdc7" class="bulleted-list"><li style="list-style-type:disc"><strong>おまけ機能を有効にする:</strong><ul id="1eccdc0a-66a6-802b-92b6-d6c165193064" class="bulleted-list"><li style="list-style-type:circle">チェックを入れると、特定の条件を満たした落札者に対して、おまけの画像を提供するための処理が有効になります。「出力フォルダ」内に別途「おまけ_XX」の名前の空フォルダが作成され、その中に自身で画像をコピーします。</li></ul><ul id="1eccdc0a-66a6-806d-9df6-d33d56af08f4" class="bulleted-list"><li style="list-style-type:circle"><strong>チェックを入れる場合:</strong> おまけ機能を利用したいとき。<br/><br/></li></ul><figure id="1eccdc0a-66a6-809d-b77b-ddfd807a2ebb" class="image"><a href="image%2012.png"><img style="width:357.96923828125px" src="image%2012.png"/></a></figure><ul id="1eccdc0a-66a6-8098-94dc-d51baf768428" class="bulleted-list"><li style="list-style-type:circle"><strong>チェックを外す場合:</strong> おまけ機能を利用しないとき。<br/><br/></li></ul><figure id="1eccdc0a-66a6-80cd-8603-de9b304242f9" class="image"><a href="image%2013.png"><img style="width:364.9615478515625px" src="image%2013.png"/></a></figure></li></ul><h3 id="1eccdc0a-66a6-80e6-8e8e-fc580b7df3d1" class="">4.7. 実行コントロールエリア</h3><p id="1eccdc0a-66a6-80fc-9064-dc6fcddce48b" class="">画面下部には、処理の開始やログ表示を行うボタンがあります。</p><ul id="1eccdc0a-66a6-8027-86cf-f8a4dd30dd41" class="bulleted-list"><li style="list-style-type:disc"><strong>1.一括実行:</strong><ul id="1eccdc0a-66a6-806c-ad73-e9b05323dbae" class="bulleted-list"><li style="list-style-type:circle">このボタンを選択し実行すると、画面上で設定された内容に基づいて、オークタウンから落札データを取得しExcelへ出力し、Excelを読み込み画像を振り分けします。<br/><br/></li></ul><figure id="1eccdc0a-66a6-80a0-8ef2-efe11beb7a24" class="image"><a href="image%2014.png"><img style="width:681.96923828125px" src="image%2014.png"/></a></figure></li></ul><ul id="1eccdc0a-66a6-80ef-b2eb-f9c02fad4337" class="bulleted-list"><li style="list-style-type:disc"><strong>2.落札データ取得:</strong><ul id="1eccdc0a-66a6-8067-8d2c-ffc0e46fd8f4" class="bulleted-list"><li style="list-style-type:circle">このボタンを選択し実行すると、画面上で設定された内容に基づいて、オークタウンから落札データを取得しExcelへ出力ます。</li></ul></li></ul><ul id="1eccdc0a-66a6-8031-a165-e477827a9186" class="bulleted-list"><li style="list-style-type:disc"><strong>3.画像振り分けのみ:</strong><ul id="1eccdc0a-66a6-800d-b074-d807889b29c5" class="bulleted-list"><li style="list-style-type:circle">1.または2.で作成されたExcelを元に画像を振り分けます。</li></ul></li></ul><p id="1eccdc0a-66a6-80ba-9737-dfceddb9899d" class="">
+</p><hr id="1eccdc0a-66a6-801d-a091-f06a3bd6567a"/><h2 id="1eccdc0a-66a6-8090-8936-d5605c316140" class="">5. 主な機能の動作詳細</h2><h3 id="1eccdc0a-66a6-80a4-b6df-f5085dd7b086" class="">5.1. オークタウンから落札データを取得しExcelへ出力</h3><ol type="1" id="1eccdc0a-66a6-80aa-a6e9-fde1aabac0ec" class="numbered-list" start="1"><li><strong>認証とログイン:</strong><ul id="1eccdc0a-66a6-8069-9a90-d7c30d3f91d7" class="bulleted-list"><li style="list-style-type:disc">実行するとオークタウンアクセスしログインが実行されます。</li></ul></li></ol><ol type="1" id="1eccdc0a-66a6-806a-869e-f39db6544fba" class="numbered-list" start="2"><li><strong>落札データ取得:</strong><ul id="1eccdc0a-66a6-806c-8818-c95972683796" class="bulleted-list"><li style="list-style-type:disc">オークタウンの「落札分」のページから「発送連絡」のステータスの落札データを抽出します。</li></ul><ul id="1eccdc0a-66a6-8084-8c6b-cc84c834100e" class="bulleted-list"><li style="list-style-type:disc">1ページずつ情報を取得し、複数ページにわたる場合は全ページを巡回します。</li></ul></li></ol><ol type="1" id="1eccdc0a-66a6-8052-b132-fb28d44376b0" class="numbered-list" start="3"><li><strong>Excelファイルへの出力:</strong><ul id="1eccdc0a-66a6-806f-91bc-e45bc0a92a02" class="bulleted-list"><li style="list-style-type:disc">取得した落札情報（商品名、落札価格、落札者IDなど）を整形し、指定されたExcelファイルに出力します。</li></ul></li></ol><h3 id="1eccdc0a-66a6-80c2-8c5e-d0c1a008ea8c" class="">5.2. Excelを読み込み画像を振り分け</h3><ol type="1" id="1eccdc0a-66a6-807e-89ef-d4bdd99e9194" class="numbered-list" start="1"><li><strong>Excelファイルの読み込み:</strong><ul id="1eccdc0a-66a6-801c-8499-e7c45a7d1651" class="bulleted-list"><li style="list-style-type:disc">指定されたExcelファイルを読み込み、必要な情報を抽出します。</li></ul></li></ol><ol type="1" id="1eccdc0a-66a6-805f-b8ed-f94589f837ee" class="numbered-list" start="2"><li><strong>画像ファイルの探索:</strong><ul id="1eccdc0a-66a6-80db-8d80-efff7a77791b" class="bulleted-list"><li style="list-style-type:disc">「画像フォルダパス」内で画像ファイルを探索します。</li></ul></li></ol><ol type="1" id="1eccdc0a-66a6-8021-adca-e6c8cc5fb25f" class="numbered-list" start="3"><li><strong>価格帯に基づく振り分け :</strong><ul id="1eccdc0a-66a6-8089-91ba-ce6efb342344" class="bulleted-list"><li style="list-style-type:disc">「価格振り分けを有効にする」がチェックされている場合、各画像に対応するExcel上の落札価格と、「価格帯設定エリア」で設定された下限値、および有効な価格帯（チェックが入っているもの）に基づいて、画像を&quot;Low&quot;, &quot;Middle&quot;, &quot;High&quot; のいずれかのサブフォルダに移動またはコピーします。</li></ul><ul id="1eccdc0a-66a6-8050-88b2-e0739bb89fa7" class="bulleted-list"><li style="list-style-type:disc">例えば、Low下限値<code>0</code>, Middle下限値<code>3000</code>, High下限値<code>10000</code>で、全てにチェックが入っている場合:<ul id="1eccdc0a-66a6-803d-9ae1-fa412cba25c3" class="bulleted-list"><li style="list-style-type:circle">価格が <code>0</code>～<code>2999</code>円の商品は &quot;Low&quot; フォルダへ</li></ul><ul id="1eccdc0a-66a6-801c-b9f0-e6fd1042b7db" class="bulleted-list"><li style="list-style-type:circle">価格が <code>3000</code>～<code>9999</code>円の商品は &quot;Middle&quot; フォルダへ</li></ul><ul id="1eccdc0a-66a6-80d7-97e4-f4373a7d8afd" class="bulleted-list"><li style="list-style-type:circle">価格が <code>10000</code>円以上の商品は &quot;High&quot; フォルダへ</li></ul></li></ul><ul id="1eccdc0a-66a6-8073-9b42-f1a824e2a1c1" class="bulleted-list"><li style="list-style-type:disc">チェックが外れている価格帯のフォルダは作成されず、その価格帯の商品は振り分け対象外となるか、別のルール（例えば、チェックが外れたMiddleに該当する商品はLowとして扱われるなど、ツールの具体的な実装に依存）で処理されます。</li></ul></li></ol><ol type="1" id="1eccdc0a-66a6-8024-9e61-c5af4a13eda0" class="numbered-list" start="4"><li><strong>落札者IDごとのフォルダ作成 (オプション有効時):</strong><ul id="1eccdc0a-66a6-80df-a43d-f02669ee265f" class="bulleted-list"><li style="list-style-type:disc">「落札者IDごとにフォルダを作成する」がチェックされている場合、上記の価格帯別フォルダ（または価格振り分け無効時は「出力フォルダ」直下）の中に、さらに落札者IDごとのサブフォルダを作成し、その中に該当する画像を格納します。</li></ul><ul id="1eccdc0a-66a6-80ca-97fc-fd1a0ba83230" class="bulleted-list"><li style="list-style-type:disc">チェックされていない場合は、落札者ID別のサブフォルダは作成されません。</li></ul></li></ol><ol type="1" id="1eccdc0a-66a6-80cc-8aba-f5d3e852f27c" class="numbered-list" start="5"><li><strong>処理の完了:</strong><ul id="1eccdc0a-66a6-803e-8ea4-d42c2dac60ce" class="bulleted-list"><li style="list-style-type:disc">処理完了のメッセージが表示されれば完了です。</li></ul></li></ol><hr id="1eccdc0a-66a6-8084-8826-dad136bb27d7"/><h2 id="1eccdc0a-66a6-80f0-a28a-f6e3aa9e2510" class="">6. トラブルシューティング</h2><ul id="1eccdc0a-66a6-801f-8e17-e24f5e0cf008" class="bulleted-list"><li style="list-style-type:disc"><strong>プリラックが起動しない / エラーが表示されて終了する:</strong><ul id="1eccdc0a-66a6-80ee-a632-d568d05ed9e6" class="bulleted-list"><li style="list-style-type:circle">デスクトップやOneDriveの同期フォルダ、その他特殊なアクセス権が要求される可能性のある場所に<code>プリラック.exe</code>　を置いている。</li></ul><ul id="1eccdc0a-66a6-8004-91cf-da831904b08a" class="bulleted-list"><li style="list-style-type:circle"><code>プリラック.exe</code> を展開したフォルダパスに特殊文字が含まれている場合、それが原因で起動しないことがあります。<code>C:\\PriRakku</code> のようなシンプルな半角英数字のパスでお試しください。</li></ul><ul id="1eccdc0a-66a6-800a-94d7-d0072083d396" class="bulleted-list"><li style="list-style-type:circle">ウイルス対策ソフトが誤って <code>プリラック.exe</code> をブロックまたは削除していないか確認してください。</li></ul></li></ul><ul id="1eccdc0a-66a6-80c8-b5a2-c915e215e077" class="bulleted-list"><li style="list-style-type:disc"><strong>オークタウンにログインできない:</strong><ul id="1eccdc0a-66a6-8025-9fe5-fd41aa12ab95" class="bulleted-list"><li style="list-style-type:circle">ログインID、パスワードが正しいか再確認してください。大文字・小文字も区別されます。</li></ul><ul id="1eccdc0a-66a6-800f-bac7-c1301e0b868d" class="bulleted-list"><li style="list-style-type:circle">オークタウン側で一時的な障害が発生しているか、メンテナンス中の可能性があります。時間をおいて試してください。</li></ul><ul id="1eccdc0a-66a6-80da-9952-c46d10aa69c5" class="bulleted-list"><li style="list-style-type:circle">オークタウンのログインページのデザインが大幅に変更された場合、プリラックが対応できなくなることがあります。</li></ul></li></ul><ul id="1eccdc0a-66a6-80f9-9b9f-e312d874674d" class="bulleted-list"><li style="list-style-type:disc"><strong>Excelファイルが正しく出力されない / 画像が正しく振り分けられない:</strong><ul id="1eccdc0a-66a6-8080-bcf1-e9d856a82b1d" class="bulleted-list"><li style="list-style-type:circle">Excelファイルや出力フォルダのパス指定が正しいか確認してください。存在しないパスを指定しているとエラーになることがあります。</li></ul><ul id="1eccdc0a-66a6-80ca-aa80-c06b818b1e98" class="bulleted-list"><li style="list-style-type:circle">Excelファイルが他のプログラムで開かれている（ロックされている）場合、書き込みに失敗することがあります。Excelを閉じてから再度実行してください。</li></ul><ul id="1eccdc0a-66a6-80aa-9538-c618676bcceb" class="bulleted-list"><li style="list-style-type:circle">価格帯設定の数値（特に大小関係）が正しいか確認してください。矛盾があると期待通りに振り分けられません。</li></ul></li></ul><ul id="1eccdc0a-66a6-805d-9aa8-e143e9275887" class="bulleted-list"><li style="list-style-type:disc"><strong>ログエリアにエラーメッセージが表示される:</strong><ul id="1eccdc0a-66a6-80fc-8f15-f152f0a7923a" class="bulleted-list"><li style="list-style-type:circle">エラーメッセージの内容をよく読み、原因を特定する手がかりにしてください。不明な場合は、エラーメッセージ全文を控えて開発者に問い合わせることを検討してください。</li></ul></li></ul><hr id="1eccdc0a-66a6-80a4-8145-eb851377eabe"/><h2 id="1eccdc0a-66a6-8047-b96a-e6cd6ba0468f" class="">7. よくある質問（FAQ）</h2><ul id="1eccdc0a-66a6-807b-98a8-f5e27fa2669c" class="bulleted-list"><li style="list-style-type:disc"><strong>Q1: プリラックは無料ですか？</strong><ul id="1eccdc0a-66a6-8000-9c4d-fb443b2f8275" class="bulleted-list"><li style="list-style-type:circle">A1: スクール会員は無料です。スクール会員でない方は有料です。</li></ul></li></ul><ul id="1eccdc0a-66a6-8014-b13b-f5eeb0ea824b" class="bulleted-list"><li style="list-style-type:disc"><strong>Q2: MacやLinuxでも使えますか？</strong><ul id="1eccdc0a-66a6-8070-be73-c48d607ff6aa" class="bulleted-list"><li style="list-style-type:circle">A2: いいえ、現在のプリラックはWindows専用です。</li></ul></li></ul><ul id="1eccdc0a-66a6-801d-a068-dcb6005c7692" class="bulleted-list"><li style="list-style-type:disc"><strong>Q3: 複数のオークタウンアカウントで利用できますか？</strong><ul id="1eccdc0a-66a6-805d-9d92-f0929a659de0" class="bulleted-list"><li style="list-style-type:circle">A3: はい、「管理名」機能を使用することで、アカウントごとに設定を保存し切り替えて利用できます。</li></ul></li></ul><ul id="1eccdc0a-66a6-807b-ad16-c85e8429057c" class="bulleted-list"><li style="list-style-type:disc"><strong>Q4: 処理中にPCがスリープしたりシャットダウンしたりしても大丈夫ですか？</strong><ul id="1eccdc0a-66a6-80ea-a45e-f2ca95d02a90" class="bulleted-list"><li style="list-style-type:circle">A4: いいえ、処理が中断されるため、完了するまでPCの電源設定でスリープモードにならないようにしてください。</li></ul></li></ul><ul id="1eccdc0a-66a6-8025-bcec-f5de58851915" class="bulleted-list"><li style="list-style-type:disc"><strong>Q5: 取得できる落札データの期間に制限はありますか？</strong><ul id="1eccdc0a-66a6-8013-b33a-d730b7ab8c29" class="bulleted-list"><li style="list-style-type:circle">A5: オークタウン側が提供している履歴の範囲に依存します。</li></ul></li></ul><ul id="1eccdc0a-66a6-8026-84eb-d5609a485404" class="bulleted-list"><li style="list-style-type:disc"><strong>Q6: 価格振り分けの価格帯は自由に変更できますか？</strong><ul id="1eccdc0a-66a6-806d-bab6-c1a0f9fcd799" class="bulleted-list"><li style="list-style-type:circle">A6: はい、メイン画面の「価格帯設定エリア」で各下限値を自由に変更できます。ただし、Low &lt; Middle &lt; High の大小関係は守ってください。</li></ul></li></ul><hr id="1eccdc0a-66a6-805b-9ec0-f90aaaafc9c9"/><h2 id="1eccdc0a-66a6-80b2-8352-fa7b8baae499" class="">8. 安全なご利用のために</h2><ul id="1eccdc0a-66a6-8025-a744-cb67e86d0fb5" class="bulleted-list"><li style="list-style-type:disc">プリラックはオークタウンの利用規約を遵守してご利用ください。自動化ツールを禁止している場合や、過度なアクセスを制限している場合があります。</li></ul><ul id="1eccdc0a-66a6-808f-b922-f8d38960cee0" class="bulleted-list"><li style="list-style-type:disc">提供元が不明な <code>プリラック.exe</code> や改変されたツールの使用は避けてください。公式サイトや信頼できる配布元から入手してください。</li></ul><ul id="1eccdc0a-66a6-80a6-94de-f398dc54d5d9" class="bulleted-list"><li style="list-style-type:disc">予期せぬ動作や不具合を発見した場合は、速やかに使用を中止し、開発者に報告してください。</li></ul><ul id="1eccdc0a-66a6-8079-a0fa-d2a69fa5f076" class="bulleted-list"><li style="list-style-type:disc">このマニュアルに記載されている内容は、ツールのバージョンアップ等により変更される可能性があります。最新の情報をご確認ください。</li></ul><ul id="1eccdc0a-66a6-80e3-aff6-ec06a6abf3fc" class="bulleted-list"><li style="list-style-type:disc">プリラックを使用して発生したいかなる損害についても、開発者は責任を負いかねる場合があります。自己責任においてご利用ください。</li></ul><hr id="1eccdc0a-66a6-8075-8b3e-f8b4c0d1a6ec"/><p id="1eccdc0a-66a6-80c5-953e-d6986fe30861" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
